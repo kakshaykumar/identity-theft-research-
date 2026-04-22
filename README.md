@@ -29,7 +29,6 @@ identity-theft-research/
 │
 ├── research-notes/
 │   ├── attack-vectors.md                        ← Attack vector taxonomy and analysis
-│   └── business-impact-framework.md             ← How identity theft affects organizations
 │
 ├── countermeasures/
 │   └── iam-controls-reference.md               ← IAM controls, MFA, encryption, monitoring
