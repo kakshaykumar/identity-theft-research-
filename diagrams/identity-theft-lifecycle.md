@@ -59,7 +59,18 @@
   │  └── Long-term access: APT persistence, future use        │
   └──────────────────────────────────────────────────────────┘
 ```
+```mermaid
+flowchart TD
+    A[🔍 Stage 1: Reconnaissance\nOSINT · Dark Web · Social Engineering] --> B
+    B[📥 Stage 2: Collection\nPhishing · CVE Exploit · Credential Stuffing · SIM Swap] --> C
+    C[⚡ Stage 3: Exploitation\nAccount Takeover · Lateral Movement · Synthetic Identity] --> D
+    D[💰 Stage 4: Monetization\nFinancial Fraud · Data Sale · Ransom · APT Persistence]
 
+    style A fill:#4C9BE8,color:#fff
+    style B fill:#E8804C,color:#fff
+    style C fill:#CC5DE8,color:#fff
+    style D fill:#E84C4C,color:#fff
+```
 ---
 
 ## Attack Surface Map: Where Identity Is Exposed
@@ -114,7 +125,24 @@
   │  └── Excessive data retention beyond operational need       │
   └─────────────────────────────────────────────────────────────┘
 ```
-
+```mermaid
+mindmap
+  root((Identity\nAttack Surface))
+    Human Surface
+      Employees\nPhishing · BEC · Insider
+      Customers\nAccount Takeover · Fraud
+      Third Parties\nSupply Chain · API Abuse
+    Technical Surface
+      Applications\nCVE · Broken Auth · Session Hijack
+      Databases\nSQL Injection · Direct DB Access
+      Identity Infra\nKerberoasting · Pass-the-Hash
+      Endpoints\nMalware · Credential Harvesting
+    Organizational Surface
+      Patch Management Failures
+      Overly Permissive Policies
+      No Network Segmentation
+      Excessive Data Retention
+```
 ---
 
 ## Defense Mapping: Controls Aligned to Lifecycle Stages
