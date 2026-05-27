@@ -4,61 +4,6 @@
 
 ## The Identity Theft Lifecycle
 
-```
-╔════════════════════════════════════════════════════════════════╗
-║              IDENTITY THEFT LIFECYCLE                          ║
-╚════════════════════════════════════════════════════════════════╝
-
-  ┌──────────────────────────────────────────────────────────┐
-  │  STAGE 1: RECONNAISSANCE                                  │
-  │                                                           │
-  │  Attacker identifies target and collects initial info     │
-  │  ├── OSINT: LinkedIn, social media, corporate sites       │
-  │  ├── Dark web: leaked credential databases                │
-  │  ├── Public data sources: voter records, property data    │
-  │  └── Social engineering pre-work: phone calls, emails     │
-  └────────────────────────┬─────────────────────────────────┘
-                           │
-                           ▼
-  ┌──────────────────────────────────────────────────────────┐
-  │  STAGE 2: COLLECTION                                      │
-  │                                                           │
-  │  Attacker obtains PII or credentials                      │
-  │                                                           │
-  │  Technical vectors:                                       │
-  │  ├── Phishing / credential harvesting                     │
-  │  ├── Vulnerability exploitation → database access         │
-  │  ├── Credential stuffing (from prior breach data)         │
-  │  └── SIM swapping → account takeover                      │
-  │                                                           │
-  │  Human vectors:                                           │
-  │  ├── Social engineering / pretexting                      │
-  │  ├── Insider threat (deliberate or coerced)               │
-  │  └── Physical theft (device, document)                    │
-  └────────────────────────┬─────────────────────────────────┘
-                           │
-                           ▼
-  ┌──────────────────────────────────────────────────────────┐
-  │  STAGE 3: EXPLOITATION                                    │
-  │                                                           │
-  │  Stolen credentials/PII are used directly                 │
-  │  ├── Account takeover (banking, email, benefits)          │
-  │  ├── Lateral movement within compromised org network      │
-  │  ├── New account fraud (credit applications, loans)       │
-  │  └── Synthetic identity construction                      │
-  └────────────────────────┬─────────────────────────────────┘
-                           │
-                           ▼
-  ┌──────────────────────────────────────────────────────────┐
-  │  STAGE 4: MONETIZATION                                    │
-  │                                                           │
-  │  Attacker converts access or data into value              │
-  │  ├── Financial fraud: wire transfers, card fraud          │
-  │  ├── Ransom: threaten to sell or expose data              │
-  │  ├── Data sale: sell credentials/PII on dark web          │
-  │  └── Long-term access: APT persistence, future use        │
-  └──────────────────────────────────────────────────────────┘
-```
 ```mermaid
 flowchart TD
     A[🔍 Stage 1: Reconnaissance\nOSINT · Dark Web · Social Engineering] --> B
@@ -75,56 +20,6 @@ flowchart TD
 
 ## Attack Surface Map: Where Identity Is Exposed
 
-```
-╔═══════════════════════════════════════════════════════════════════╗
-║                    IDENTITY ATTACK SURFACE                        ║
-╚═══════════════════════════════════════════════════════════════════╝
-
-  ┌─────────────────────────────────────────────────────────────┐
-  │  HUMAN SURFACE                                               │
-  │                                                              │
-  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐  │
-  │  │  Employees   │  │  Customers   │  │  Third Parties   │  │
-  │  │              │  │              │  │  (vendors,        │  │
-  │  │ Phishing     │  │ Phishing     │  │  contractors)    │  │
-  │  │ BEC          │  │ Account      │  │                  │  │
-  │  │ Insider      │  │ takeover     │  │ Supply chain     │  │
-  │  │ threats      │  │ Fraud        │  │ API abuse        │  │
-  │  └──────────────┘  └──────────────┘  └──────────────────┘  │
-  └─────────────────────────────────────────────────────────────┘
-
-  ┌─────────────────────────────────────────────────────────────┐
-  │  TECHNICAL SURFACE                                           │
-  │                                                              │
-  │  ┌───────────────┐  ┌──────────────┐  ┌──────────────────┐ │
-  │  │  Applications │  │  Databases   │  │  Identity Infra  │ │
-  │  │               │  │              │  │                  │ │
-  │  │ CVE exploits  │  │ SQL injection│  │ AD/LDAP attacks  │ │
-  │  │ Broken auth   │  │ Direct DB    │  │ Kerberoasting    │ │
-  │  │ API abuse     │  │ access       │  │ Pass-the-hash    │ │
-  │  │ Session hijack│  │ Backup theft │  │ Golden ticket    │ │
-  │  └───────────────┘  └──────────────┘  └──────────────────┘ │
-  │                                                              │
-  │  ┌───────────────┐  ┌──────────────┐                        │
-  │  │  Endpoints    │  │  Network     │                        │
-  │  │               │  │              │                        │
-  │  │ Malware       │  │ MitM attacks │                        │
-  │  │ Credential    │  │ DNS spoofing │                        │
-  │  │ harvesting    │  │ No segmenta- │                        │
-  │  │ Physical theft│  │ tion         │                        │
-  │  └───────────────┘  └──────────────┘                        │
-  └─────────────────────────────────────────────────────────────┘
-
-  ┌─────────────────────────────────────────────────────────────┐
-  │  PROCESS / ORGANIZATIONAL SURFACE                            │
-  │                                                              │
-  │  ├── Insufficient patch management (Equifax)                │
-  │  ├── Overly permissive data access policies (Facebook)      │
-  │  ├── Weak carrier identity verification (SIM swap)          │
-  │  ├── No segmentation between internet & production (T-Mobile)│
-  │  └── Excessive data retention beyond operational need       │
-  └─────────────────────────────────────────────────────────────┘
-```
 ```mermaid
 mindmap
   root((Identity\nAttack Surface))
