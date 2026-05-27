@@ -62,6 +62,23 @@ The initial vulnerability was bad, but several other failures compounded it:
 
 ---
 
+## STRIDE Threat Analysis
+
+Applying the STRIDE model to the Equifax breach maps each failure to a specific threat category and shows which controls would have addressed it.
+
+| STRIDE Category | How It Applied | Control That Would Have Mitigated It |
+|---|---|---|
+| **Spoofing** | Attackers blended exfiltration traffic into encrypted outbound channels that appeared legitimate | TLS inspection with valid certificates; behavioral baselines to flag unusual outbound data volumes |
+| **Tampering** | Unencrypted databases meant data could be modified or exfiltrated without detection | AES-256 encryption at rest; database activity monitoring (DAM) |
+| **Repudiation** | No data access audit logs; expired SSL certificate disabled 300+ network streams from inspection — no forensic trail of what was accessed or when | Data Access Audit Logs enabled by default; certificate lifecycle management with automated expiry alerts |
+| **Information Disclosure** | Core breach — 147M records exfiltrated including SSNs, dates of birth, credit card numbers | Network segmentation (web tier should not reach DB tier directly); data minimization — retain PII only as long as operationally required |
+| **Denial of Service** | Not a primary vector in this breach | N/A |
+| **Elevation of Privilege** | Lateral movement from exploited web application server directly into internal database systems | Least-privilege network architecture; DMZ isolation; internet-facing apps must not have direct DB access |
+
+**Key STRIDE finding:** The Equifax breach was driven primarily by **Information Disclosure** and **Elevation of Privilege** failures — both of which are IAM and network architecture problems, not sophisticated attacker capability.
+
+---
+
 ## Key Takeaway for IAM Practice
 
 The Equifax breach was fundamentally a failure of access control and infrastructure hygiene, not a failure to stop a sophisticated attacker. The attackers used a well-known, published exploit. The systems they accessed were insufficiently isolated. The data they stole was unencrypted and unnecessarily retained.
