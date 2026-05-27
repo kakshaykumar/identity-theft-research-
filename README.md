@@ -48,6 +48,7 @@ In 2023 alone, the FTC received 1.1 million identity theft reports in the United
 
 What's striking when you look at the major incidents is how preventable many of them were. The Equifax breach came down to an unpatched server. The Cambridge Analytica scandal exploited a permissive API policy that Facebook had the ability — and arguably the obligation — to restrict. T-Mobile's breach involved lateral movement so easy the attacker described T-Mobile's security posture as "awful" in public interviews. These weren't sophisticated zero-day attacks. They were the consequences of organizational decisions about how much to invest in identity security.
 
+![Identity Theft Lifecycle](diagrams/identity-theft-lifecycle.md)
 ---
 
 ## Case Studies Covered
