@@ -104,6 +104,7 @@ See [`countermeasures/iam-controls-reference.md`](countermeasures/iam-controls-r
 - Identity lifecycle analysis and IAM framework design principles
 - Case study methodology — connecting incidents to root causes to lessons
 - Attack vector taxonomy (MITRE ATT&CK-aligned threat categorization)
+- STRIDE threat modeling applied to evaluate which defensive controls would have prevented or limited each incident
 - Defense-in-depth thinking applied to identity and access management
 - Regulatory framework literacy (NIST, GDPR, CCPA, ISO 27001)
 - Understanding of emerging identity threats (synthetic fraud, deepfakes, PQC)
